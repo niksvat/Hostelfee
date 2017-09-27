@@ -1,0 +1,31 @@
+.footer {
+	background:#2e5f97;
+	padding:10px 0px;
+	color:#FFF;
+	text-align:center;
+}
+.header {
+	background:#f9f9f9;
+	border-bottom:2px solid #2e5f97;
+}
+.header .logo {
+	margin-top:8px;
+	margin-bottom:8px;
+}
+
+.header .logo img{width:100%;}
+.contact {margin-top:10px;}
+.contact span{ font-weight:600;}
+.page-header h1{font-size:24px;}
+.payment_form{margin-top:15px; background:#f4f4f4; padding:10px;}
+.page-header{min-height:400px;}
+.btn-dark-blue {
+    background-color: #369;
+    background-image: linear-gradient(to bottom, #369, #036);
+    background-size: 100% auto;
+	color:#FFF;
+}
+.btn-dark-blue:hover{ background:#1e65ab; color:#FFF;}
+.required{color:#FF0000;}
+.error{color:#FF0000; font-size:12px; font-family:Arial, Helvetica, sans-serif;}
+.hint_block{margin-top:30px; border:1px solid #cccccc; padding:10px 0px;}
