@@ -10,6 +10,9 @@
 <html lang="en">
     
     <%!
+    
+    //This is testing...
+    
 public boolean empty(String s)
 	{
 		if(s== null || s.trim().equals(""))
