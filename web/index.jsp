@@ -13,7 +13,7 @@
 
    
    
-=======
+
     
     //This is testing...
     //This is secong test
@@ -83,6 +83,7 @@ public boolean empty(String s)
         
 	String txnid =""; //type here...
 	if(empty(params.get("txnid"))){
+               // out.println(params.get("txnid"));
 		Random rand = new Random();
 		String rndm = Integer.toString(rand.nextInt())+(System.currentTimeMillis() / 1000L);
 		txnid=hashCal("SHA-256",rndm).substring(0,20);
@@ -151,9 +152,11 @@ public boolean empty(String s)
 var hash='<%= hash %>';
 function submitPayuForm() {
 	
-	if (hash == '')
+	if (hash == ''){
+                
 		return;
-
+        }
+        console.log("Hello");
       var payuForm = document.forms.payuForm;
       payuForm.submit();
     }
@@ -161,7 +164,7 @@ function submitPayuForm() {
 
 </head>
 
-<body>
+<body onload="submitPayuForm();">
 <div class="header">
 <div class="container">
 <div class="row">
@@ -189,10 +192,10 @@ function submitPayuForm() {
       
 	  <input type="hidden" name="service_provider" value="payu_paisa" />
           <input name="country" value="India" type="hidden"/>
-          <input type="hidden" name="surl" value="http://www.booksnote.com/success" /><!-- http://www.booksnote.com/success-->
-          <input type="hidden" name="furl" value="http://www.booksnote.com/failure" /><!--http://www.booksnote.com/failure -->
+          <input type="hidden" name="surl" value="http://localhost:8084/Hostelfee/success.jsp" /><!-- http://www.booksnote.com/success-->
+          <input type="hidden" name="furl" value="http://localhost:8084/Hostelfee/failed.jsp" /><!--http://www.booksnote.com/failure -->
           <input type="hidden" name="curl" value="http://www.booksnote.com/cancel" /><!--http://www.booksnote.com/cancel -->
-           <input name="productinfo" type="hidden" value="Sample" />
+           <input name="productinfo" type="hidden" value="Hostel Fee submission" />
            
            
            
