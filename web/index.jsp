@@ -10,8 +10,16 @@
 <html lang="en">
     
     <%!
+<<<<<<< HEAD
    
    
+=======
+    
+    //This is testing...
+    //This is secong test
+    //hello my name is test
+    //Hello niks master
+>>>>>>> test
     
 public boolean empty(String s)
 	{
