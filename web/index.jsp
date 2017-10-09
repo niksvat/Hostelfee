@@ -54,8 +54,8 @@ public boolean empty(String s)
 	}
 %>
 <% 	
-	String merchant_key="bPfxw2UH";//typer here...test merchant_key[bPfxw2UH] and original merchankey[WBiWEqtY]
-	String salt="ZUVOg8frEb";//type here...testsalt[ZUVOg8frEb] and merchant ID=5544247 
+	String merchant_key="rjQUPktU";//typer here...test merchant_key[bPfxw2UH] and original merchankey[WBiWEqtY]
+	String salt="e5iIg1jwi8";//type here...testsalt[ZUVOg8frEb] and merchant ID=5544247 
 	String action1 ="#";            //   original... slat[8fu1iJTk9p]
 	String base_url="https://test.payu.in";//Its test[https://test.payu.in]
 	int error=0;                                        // original url[https://secure.payu.in/_payment]
