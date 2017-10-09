@@ -292,6 +292,17 @@ function submitPayuForm() {
                   <span class="error">
                                 </span> </div>-->
                 
+              <div class="col-md-6 form-group">
+                <label>Block <span  class="required">*</span></label>
+                <input type="text"  class="form-control" name="block" value="<%= (empty(params.get("block"))) ? "" : params.get("block") %>" maxlength="100">
+                <span class="error">
+                                </span> </div>
+              <div class="col-md-6  form-group">
+                <label>Room No. <span  class="required">*</span></label>
+                <input type="text"  class="form-control" name="roomno" value="<%= (empty(params.get("roomno"))) ? "" : params.get("roomno") %>" placeholder maxlength="10" onkeypress="return IsNumeric(event)">
+                <span class="error">
+                                </span> </div>
+              <div class="clearfix"></div>
               
               <div class="col-md-6 form-group">
                 <label>Email Id <span  class="required">*</span></label>
