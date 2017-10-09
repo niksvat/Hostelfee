@@ -256,7 +256,7 @@ function submitPayuForm() {
                 <span class="error">
                                 </span> </div>
                 
-              <div class="col-md-6 form-group">
+              <!--<div class="col-md-6 form-group">
                 <label> Fee Type <span  class="required">*</span></label>
                 
                 <select  name="fee_type" class="form-control fee_type" size="1">
@@ -266,6 +266,12 @@ function submitPayuForm() {
                   <option value="Other Fee" > Other Fee</option>
                 </select>
                 <span class="error">
+                                </span> </div>-->
+              <div class="col-md-6 form-group">
+              <label>Hostel Admission Fee : Rs. 1200</label><br></br>
+              <label>Other Fee : Rs. 800 </lable><br></br>
+              <label>Security Fee :Rs. 500</label><br></br>
+              <span class="error">
                                 </span> </div>
               <div class="clearfix"></div>
               <!--<div class="col-md-6 form-group other_field">
@@ -275,18 +281,18 @@ function submitPayuForm() {
                                 </span> </div>-->
               <div class="col-md-6 form-group">
                 <label>Amount <span  class="required">*</span></label>
-                <input type="text"  class="form-control" name="amount" value="<%= (empty(params.get("amount"))) ? "" : params.get("amount") %>"  maxlength="100">
+                <input type="text"  class="form-control" name="amount" value="2500" readonly  maxlength="100">
                 <span class="error">
                                 </span> </div>
                 
                  <div class="clearfix"></div>
-                 <div class="col-md-12 form-group">
+                <!-- <div class="col-md-12 form-group">
                 <!--<label>Aadhaar  Card Number <span  class="required">*</span></label>
                 <input type="text"  class="form-control" name="aadhaar_card_no" value="" maxlength="12" onkeypress="return IsNumeric(event)">
-               -->   <span class="error">
-                                </span> </div>
+                  <span class="error">
+                                </span> </div>-->
                 
-              <div class="clearfix"></div>
+              
               <div class="col-md-6 form-group">
                 <label>Email Id <span  class="required">*</span></label>
                 <input type="text"  class="form-control" name="email" value="<%= (empty(params.get("email"))) ? "" : params.get("email") %>" maxlength="100">
