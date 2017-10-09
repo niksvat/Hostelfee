@@ -192,8 +192,8 @@ function submitPayuForm() {
       
 	  <input type="hidden" name="service_provider" value="payu_paisa" />
           <input name="country" value="India" type="hidden"/>
-          <input type="hidden" name="surl" value="http://localhost:8084/Hostelfee/success.jsp" /><!-- http://www.booksnote.com/success-->
-          <input type="hidden" name="furl" value="http://localhost:8084/Hostelfee/failed.jsp" /><!--http://www.booksnote.com/failure -->
+          <input type="hidden" name="surl" value="http://localhost:8080/Hostelfee/success.jsp" /><!-- http://www.booksnote.com/success-->
+          <input type="hidden" name="furl" value="http://localhost:8080/Hostelfee/failed.jsp" /><!--http://www.booksnote.com/failure -->
           <input type="hidden" name="curl" value="http://www.booksnote.com/cancel" /><!--http://www.booksnote.com/cancel -->
            <input name="productinfo" type="hidden" value="Hostel Fee submission" />
            
@@ -240,19 +240,19 @@ function submitPayuForm() {
               
               <div class="col-md-6  form-group">
                 <label>Semester <span  class="required">*</span></label>
-                <input type="text"  class="form-control" name="udf5" value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>"  maxlength="100">
-                <!--<select  name="semester" class="form-control" size="1">
-                  <option value="" selected="selected">--Select Semester--</option>
-                  <option value="1" class="sem1" >Semester - I</option>
-                  <option value="2" class="sem1" >Semester - II</option>
-                  <option value="3" class="sem1" >Semester - III</option>
-                  <option value="4" class="sem1" >Semester - IV</option>
-                  <option value="5" class="sem2" >Semester - V</option>
-                  <option value="6" class="sem2" >Semester - VI</option>
-                  <option value="7" class="sem2" >Semester - VII</option>
-                  <option value="8" class="sem2" >Semester - VIII</option>
+                
+                <select name="udf5" value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" class="form-control" size="1">
+                  <option value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" selected="selected">--Select Semester--</option>
+                  <option value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" class="sem1" >Semester - I</option>
+                  <option value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" class="sem1" >Semester - II</option>
+                  <option value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" class="sem1" >Semester - III</option>
+                  <option value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" class="sem1" >Semester - IV</option>
+                  <option value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" class="sem2" >Semester - V</option>
+                  <option value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" class="sem2" >Semester - VI</option>
+                  <option value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" class="sem2" >Semester - VII</option>
+                  <option value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" class="sem2" >Semester - VIII</option>
                   
-                </select>-->
+                </select>
                 <span class="error">
                                 </span> </div>
                 
