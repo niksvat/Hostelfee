@@ -294,12 +294,22 @@ function submitPayuForm() {
                 
               <div class="col-md-6 form-group">
                 <label>Block <span  class="required">*</span></label>
-                <input type="text"  class="form-control" name="block" value="<%= (empty(params.get("block"))) ? "" : params.get("block") %>" maxlength="100">
+                <select  name="block" class="form-control fee_type" size="1">
+                  <option value="">--Block--</option>
+                  <option value="A" >A</option>
+                  <option value="B" > B</option>
+                  <option value="C" > C</option>
+                </select>
                 <span class="error">
                                 </span> </div>
               <div class="col-md-6  form-group">
                 <label>Room No. <span  class="required">*</span></label>
-                <input type="text"  class="form-control" name="roomno" value="<%= (empty(params.get("roomno"))) ? "" : params.get("roomno") %>" placeholder maxlength="10" onkeypress="return IsNumeric(event)">
+                <select  name="roomno" class="form-control fee_type" size="1">
+                  <option value="">--Room no--</option>
+                  <option value="27" >27</option>
+                  <option value="42" > 42</option>
+                  
+                </select>
                 <span class="error">
                                 </span> </div>
               <div class="clearfix"></div>
