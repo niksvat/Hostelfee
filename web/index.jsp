@@ -156,9 +156,42 @@ function submitPayuForm() {
                 
 		return;
         }
-        console.log("Hello");
+        //console.log("Hello");
       var payuForm = document.forms.payuForm;
       payuForm.submit();
+    }
+    
+    function foo()
+    {
+        
+        var info=new Object();
+       
+       var rollno=document.getElementById("rollnoid");
+       var roomno=document.getElementById("roomnoid");
+       var block=document.getElementById("blockid");
+        info.rollno=rollno.value;
+        info.roomno=roomno.value;
+        info.block=block.value;
+        
+        var request=new XMLHttpRequest();
+        request. open('POST','/check');
+       request.send(info);
+       
+       var request=new XMLHttpRequest();
+       request.open("GET",'/check');
+       request.send();
+       request.addEventListener('load',function(){
+         
+          ob= request.responseText;
+          console.log(ob);
+          if(ob=False)
+              {
+                  alert("YOU ARE NOT A VALID USER");
+                  window.location.href="localhost:8080/hostelfee";
+              }
+              
+        //console.log(arrayofproducts);
+   });
     }
 </script>
 
@@ -222,7 +255,7 @@ function submitPayuForm() {
               
               <div class="col-md-6  form-group">
                 <label>Roll Number <span  class="required">*</span></label>
-                <input type="text"  class="form-control" name="udf2" value="<%= (empty(params.get("udf2"))) ? "" : params.get("udf2") %>"  maxlength="100">
+                <input type="text"  class="form-control" name="udf2" id="rollnoid" value="<%= (empty(params.get("udf2"))) ? "" : params.get("udf2") %>"  maxlength="100">
                 <span class="error">
                                 </span> </div>
                 <div class="clearfix"></div>
@@ -294,7 +327,7 @@ function submitPayuForm() {
                 
               <div class="col-md-6 form-group">
                 <label>Block <span  class="required">*</span></label>
-                <select  name="block" class="form-control fee_type" size="1">
+                <select  name="block" id="blockid" class="form-control fee_type" size="1">
                   <option value="">--Block--</option>
                   <option value="A" >A</option>
                   <option value="B" > B</option>
@@ -304,7 +337,7 @@ function submitPayuForm() {
                                 </span> </div>
               <div class="col-md-6  form-group">
                 <label>Room No. <span  class="required">*</span></label>
-                <select  name="roomno" class="form-control fee_type" size="1">
+                <select  name="roomno" id="roomnoid" class="form-control fee_type" size="1">
                   <option value="">--Room no--</option>
                   <option value="27" >27</option>
                   <option value="42" > 42</option>
@@ -328,7 +361,7 @@ function submitPayuForm() {
               <div class="col-md-6 form-group">
                 <label class=""></label>
                 <% if(empty(hash)){ %>
-            <td colspan="4"><input  type="submit" class="btn btn btn-dark-blue" value="Submit" name="submit_payment">
+            <td colspan="4"><input type="submit" onclick="foo();" class="btn btn btn-dark-blue" value="Submit" name="submit_payment">
           <% } %>
                 
               </div>
