@@ -10,16 +10,15 @@
 <html lang="en">
     
     <%!
-<<<<<<< HEAD
+
    
    
-=======
+
     
     //This is testing...
     //This is secong test
     //hello my name is test
     //Hello niks master
->>>>>>> test
     
 public boolean empty(String s)
 	{
@@ -55,8 +54,8 @@ public boolean empty(String s)
 	}
 %>
 <% 	
-	String merchant_key="bPfxw2UH";//typer here...test merchant_key[bPfxw2UH] and original merchankey[WBiWEqtY]
-	String salt="ZUVOg8frEb";//type here...testsalt[ZUVOg8frEb] and merchant ID=5544247 
+	String merchant_key="rjQUPktU";//typer here...test merchant_key[bPfxw2UH] and original merchankey[WBiWEqtY]
+	String salt="e5iIg1jwi8";//type here...testsalt[ZUVOg8frEb] and merchant ID=5544247 
 	String action1 ="#";            //   original... slat[8fu1iJTk9p]
 	String base_url="https://test.payu.in";//Its test[https://test.payu.in]
 	int error=0;                                        // original url[https://secure.payu.in/_payment]
@@ -84,6 +83,7 @@ public boolean empty(String s)
         
 	String txnid =""; //type here...
 	if(empty(params.get("txnid"))){
+               // out.println(params.get("txnid"));
 		Random rand = new Random();
 		String rndm = Integer.toString(rand.nextInt())+(System.currentTimeMillis() / 1000L);
 		txnid=hashCal("SHA-256",rndm).substring(0,20);
@@ -136,7 +136,7 @@ public boolean empty(String s)
 
 %>
     
-    
+   <!-- <jsp:include page="databasecheckup.jsp"></jsp:include>-->
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -152,9 +152,11 @@ public boolean empty(String s)
 var hash='<%= hash %>';
 function submitPayuForm() {
 	
-	if (hash == '')
+	if (hash == ''){
+                
 		return;
-
+        }
+        console.log("Hello");
       var payuForm = document.forms.payuForm;
       payuForm.submit();
     }
@@ -162,7 +164,7 @@ function submitPayuForm() {
 
 </head>
 
-<body>
+<body onload="submitPayuForm();">
 <div class="header">
 <div class="container">
 <div class="row">
@@ -190,10 +192,10 @@ function submitPayuForm() {
       
 	  <input type="hidden" name="service_provider" value="payu_paisa" />
           <input name="country" value="India" type="hidden"/>
-          <input type="hidden" name="surl" value="http://www.booksnote.com/success" /><!-- http://www.booksnote.com/success-->
-          <input type="hidden" name="furl" value="http://www.booksnote.com/failure" /><!--http://www.booksnote.com/failure -->
+          <input type="hidden" name="surl" value="http://localhost:8080/Hostelfee/success.jsp" /><!-- http://www.booksnote.com/success-->
+          <input type="hidden" name="furl" value="http://localhost:8080/Hostelfee/failed.jsp" /><!--http://www.booksnote.com/failure -->
           <input type="hidden" name="curl" value="http://www.booksnote.com/cancel" /><!--http://www.booksnote.com/cancel -->
-           <input name="productinfo" type="hidden" value="Sample" />
+           <input name="productinfo" type="hidden" value="Hostel Fee submission" />
            
            
            
@@ -238,23 +240,23 @@ function submitPayuForm() {
               
               <div class="col-md-6  form-group">
                 <label>Semester <span  class="required">*</span></label>
-                <input type="text"  class="form-control" name="udf5" value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>"  maxlength="100">
-                <!--<select  name="semester" class="form-control" size="1">
-                  <option value="" selected="selected">--Select Semester--</option>
-                  <option value="1" class="sem1" >Semester - I</option>
-                  <option value="2" class="sem1" >Semester - II</option>
-                  <option value="3" class="sem1" >Semester - III</option>
-                  <option value="4" class="sem1" >Semester - IV</option>
-                  <option value="5" class="sem2" >Semester - V</option>
-                  <option value="6" class="sem2" >Semester - VI</option>
-                  <option value="7" class="sem2" >Semester - VII</option>
-                  <option value="8" class="sem2" >Semester - VIII</option>
+                
+                <select name="udf5" value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" class="form-control" size="1">
+                  <option value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" selected="selected">--Select Semester--</option>
+                  <option value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" class="sem1" >Semester - I</option>
+                  <option value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" class="sem1" >Semester - II</option>
+                  <option value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" class="sem1" >Semester - III</option>
+                  <option value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" class="sem1" >Semester - IV</option>
+                  <option value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" class="sem2" >Semester - V</option>
+                  <option value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" class="sem2" >Semester - VI</option>
+                  <option value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" class="sem2" >Semester - VII</option>
+                  <option value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" class="sem2" >Semester - VIII</option>
                   
-                </select>-->
+                </select>
                 <span class="error">
                                 </span> </div>
                 
-              <div class="col-md-6 form-group">
+              <!--<div class="col-md-6 form-group">
                 <label> Fee Type <span  class="required">*</span></label>
                 
                 <select  name="fee_type" class="form-control fee_type" size="1">
@@ -264,6 +266,12 @@ function submitPayuForm() {
                   <option value="Other Fee" > Other Fee</option>
                 </select>
                 <span class="error">
+                                </span> </div>-->
+              <div class="col-md-6 form-group">
+              <label>Hostel Admission Fee : Rs. 1200</label><br></br>
+              <label>Other Fee : Rs. 800 </lable><br></br>
+              <label>Security Fee :Rs. 500</label><br></br>
+              <span class="error">
                                 </span> </div>
               <div class="clearfix"></div>
               <!--<div class="col-md-6 form-group other_field">
@@ -273,18 +281,39 @@ function submitPayuForm() {
                                 </span> </div>-->
               <div class="col-md-6 form-group">
                 <label>Amount <span  class="required">*</span></label>
-                <input type="text"  class="form-control" name="amount" value="<%= (empty(params.get("amount"))) ? "" : params.get("amount") %>"  maxlength="100">
+                <input type="text"  class="form-control" name="amount" value="2500" readonly  maxlength="100">
                 <span class="error">
                                 </span> </div>
                 
                  <div class="clearfix"></div>
-                 <div class="col-md-12 form-group">
+                <!-- <div class="col-md-12 form-group">
                 <!--<label>Aadhaar  Card Number <span  class="required">*</span></label>
                 <input type="text"  class="form-control" name="aadhaar_card_no" value="" maxlength="12" onkeypress="return IsNumeric(event)">
-               -->   <span class="error">
-                                </span> </div>
+                  <span class="error">
+                                </span> </div>-->
                 
+              <div class="col-md-6 form-group">
+                <label>Block <span  class="required">*</span></label>
+                <select  name="block" class="form-control fee_type" size="1">
+                  <option value="">--Block--</option>
+                  <option value="A" >A</option>
+                  <option value="B" > B</option>
+                  <option value="C" > C</option>
+                </select>
+                <span class="error">
+                                </span> </div>
+              <div class="col-md-6  form-group">
+                <label>Room No. <span  class="required">*</span></label>
+                <select  name="roomno" class="form-control fee_type" size="1">
+                  <option value="">--Room no--</option>
+                  <option value="27" >27</option>
+                  <option value="42" > 42</option>
+                  
+                </select>
+                <span class="error">
+                                </span> </div>
               <div class="clearfix"></div>
+              
               <div class="col-md-6 form-group">
                 <label>Email Id <span  class="required">*</span></label>
                 <input type="text"  class="form-control" name="email" value="<%= (empty(params.get("email"))) ? "" : params.get("email") %>" maxlength="100">
