@@ -136,7 +136,7 @@ public boolean empty(String s)
 
 %>
     
-    
+   <!-- <jsp:include page="databasecheckup.jsp"></jsp:include>-->
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
