@@ -138,9 +138,33 @@ public class check extends HttpServlet {
             }else{
                 
                  //out.println("present here");
-                  response.setContentType("text/plain"); 
+                PreparedStatement s1=con.prepareStatement("select * from status where rollno=?");
+                s1.setString(1, rollno);
+                ResultSet rs1=s1.executeQuery();
+                
+                if(rs.next()){
+                    response.setContentType("text/plain");
+                    response.setCharacterEncoding("UTF-8");
+                    response.getWriter().write("1");
+                }
+                else{
+                    PreparedStatement s2=con.prepareStatement("select * from status where block=? and roomno=?");
+                    s2.setString(1, block);
+                    ResultSet rs2=s2.executeQuery();
+                    
+                    if(rs.next())
+                    {
+                        response.setContentType("text/plain"); 
                 response.setCharacterEncoding("UTF-8");
-                response.getWriter().write("1");
+                response.getWriter().write("2");
+                    }
+                    else {
+                        response.setContentType("text/plain"); 
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write("3");
+                    }
+                }
+              
             }
           // response.getWriter().write("Hello");
           // request.getRequestDispatcher("/notvalid.jsp").forward(request,response);
