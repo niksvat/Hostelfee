@@ -47,63 +47,10 @@ public class check extends HttpServlet {
         
         
         PrintWriter out = response.getWriter();
-        // out.println(rollno);
-         //out.println(roomno);
-         //out.println(block);
+         out.println(rollno);
+         out.println(roomno);
+        out.println(block);
         
-        
-      /*  PrintWriter out = response.getWriter();
-       BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream()));
-       String stu="";  
-       if(br != null){
-        stu = br.readLine();
-    }
-       
-       ObjectMapper mapper = new ObjectMapper();
-        
-        String text = "false";
-      
-           student stubean = (student)mapper.readValue(stu, student.class);
-            String rollno = stubean.getRollNo();
-            String block = stubean.getBlock();
-            String roomno = stubean.getRoomno();
-        
-        
-        response.setContentType("text/plain");  // Set content type of the response so that jQuery knows what it can expect.
-    response.setCharacterEncoding("UTF-8"); // You want world domination, huh?
-    response.getWriter().write(rollno);
-      */
-        //request.getRequestDispatcher("/notvalid.jsp").forward(request,response);
-        
-        
-        //student info = new student();
-       // String nik = request.getParameter("info");
-        
-        
-       // ObjectMapper mapper = new ObjectMapper();
-   
-     //  student stubean = new student();
-       
-       
-      // PrintWriter out = response.getWriter();
-       // BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream()));
-        
-     //   String stu = br.readLine();
-        //  response.setContentType("text/plain"); 
-          ///      response.setCharacterEncoding("UTF-8");
-             //   String hello="hew";
-               // response.getWriter().write(hello);
-            
-            
-           /* student stubean = (student)mapper.readValue(stu, student.class);
-            String rollno = stubean.getRollNo();
-            String block = stubean.getBlock();
-            String roomno = stubean.getRoomno();
-            
-            
-       
-        
-        */
         
         
         //*********************************************************************************************************************** 
@@ -141,8 +88,8 @@ public class check extends HttpServlet {
                 PreparedStatement s1=con.prepareStatement("select * from status where rollno=?");
                 s1.setString(1, rollno);
                 ResultSet rs1=s1.executeQuery();
-                
-                if(rs.next()){
+                if(rs1.next()){
+                    
                     response.setContentType("text/plain");
                     response.setCharacterEncoding("UTF-8");
                     response.getWriter().write("1");
@@ -150,9 +97,10 @@ public class check extends HttpServlet {
                 else{
                     PreparedStatement s2=con.prepareStatement("select * from status where block=? and roomno=?");
                     s2.setString(1, block);
+                    s2.setString(2, roomno);
                     ResultSet rs2=s2.executeQuery();
                     
-                    if(rs.next())
+                    if(rs2.next())
                     {
                         response.setContentType("text/plain"); 
                 response.setCharacterEncoding("UTF-8");

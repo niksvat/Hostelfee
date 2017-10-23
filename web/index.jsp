@@ -189,7 +189,25 @@ function submitPayuForm() {
         data: 'rollno='+info.rollno+'&roomno='+info.roomno+'&block='+info.block ,
         success: function (response) {
             console.log(response);
-            alert(response);
+            
+            if(response==0){
+                alert("You are not Valid Student");
+                window.location.href="index.jsp";
+            }
+            
+            if(response==1){
+                
+                alert("You already have room");
+                window.location.href="index.jsp";
+            }
+            if(response==2){
+                alert("Sorry, This room is already booked");
+                 window.location.href="index.jsp";
+        }
+            
+            
+            
+            
         },
         error: function (response) {
             console.log(response);
