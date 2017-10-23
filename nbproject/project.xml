@@ -9,6 +9,10 @@
                     <file>${libs.MySQLDriver.classpath}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
+                <library dirs="200">
+                    <file>${file.reference.jackson-all-1.9.0.jar}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
             </web-module-libraries>
             <web-module-additional-libraries/>
             <source-roots>

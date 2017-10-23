@@ -146,7 +146,8 @@ public boolean empty(String s)
 <title>UIET |  KURUKSHETRA  Payment System</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/theme.css" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+<script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script>
 var hash='<%= hash %>';
@@ -164,7 +165,7 @@ function submitPayuForm() {
     function foo()
     {
         
-        var info=new Object();
+       var info=new Object();
        
        var rollno=document.getElementById("rollnoid");
        var roomno=document.getElementById("roomnoid");
@@ -173,25 +174,61 @@ function submitPayuForm() {
         info.roomno=roomno.value;
         info.block=block.value;
         
-        var request=new XMLHttpRequest();
-        request. open('POST','/check');
-       request.send(info);
+      /*  var requester=new XMLHttpRequest();
+        
+          requester.open('POST','check');
+       requester.send(JSON.stringify(info));
+       */
        
-       var request=new XMLHttpRequest();
-       request.open("GET",'/check');
-       request.send();
-       request.addEventListener('load',function(){
-         
-          ob= request.responseText;
+       $.ajax({
+        url: 'check',
+        type: 'GET',
+        dataType: 'json',
+        contentType: 'application/json',
+        mimeType: 'application/json',
+        data: JSON.stringify(info) ,
+        success: function (response) {
+            console.log(response);
+            alert(response);
+        },
+        error: function (response) {
+            console.log(response);
+            alert("error");
+        }
+    }); 
+       
+       
+       
+        
+       /* requester.onreadystatechange = fsenunction() {
+  if (this.readyState == 4 && this.status == 200) {
+    document.getElementById("demo").innerHTML = this.responseText;
+  }
+};
+        
+      
+       /*alert("hello");
+       
+       
+     */  
+       /*var requesterr=new XMLHttpRequest();
+       requesterr.open("POST",'check');
+       requesterr.send();
+       requesterr.addEventListener('load',function(){
+      
+          ob= requesterr.responseText;
           console.log(ob);
-          if(ob=False)
+          
+          if(!ob)
               {
                   alert("YOU ARE NOT A VALID USER");
                   window.location.href="localhost:8080/hostelfee";
+              }else{
+                  window.location.href="google.com";
               }
               
         //console.log(arrayofproducts);
-   });
+   });*/
     }
 </script>
 
@@ -354,14 +391,14 @@ function submitPayuForm() {
                                 </span> </div>
               <div class="col-md-6  form-group">
                 <label>Mobile Number <span  class="required">*</span></label>
-                <input type="text"  class="form-control" name="phone" value="<%= (empty(params.get("phone"))) ? "" : params.get("phone") %>" placeholder maxlength="10" onkeypress="return IsNumeric(event)">
+                <input type="text"  class="form-control" name="phone" value="<%= (empty(params.get("phone"))) ? "" : params.get("phone") %>" placeholder maxlength="10" onkeypress="return IsNumeric(event)" >
                 <span class="error">
                                 </span> </div>
               <div class="clearfix"></div>
               <div class="col-md-6 form-group">
                 <label class=""></label>
                 <% if(empty(hash)){ %>
-            <td colspan="4"><input type="submit" onclick="foo();" class="btn btn btn-dark-blue" value="Submit" name="submit_payment">
+            <td colspan="4"><input type="submit" onclick="foo()" class="btn btn btn-    dark-blue" value="Submit" name="submit_payment">
           <% } %>
                 
               </div>
