@@ -186,7 +186,7 @@ function submitPayuForm() {
         dataType: 'json',
         contentType: 'application/json',
         mimeType: 'application/json',
-        data: JSON.stringify(info) ,
+        data: 'rollno='+info.rollno+'&roomno='+info.roomno+'&block='+info.block ,
         success: function (response) {
             console.log(response);
             alert(response);

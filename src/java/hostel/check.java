@@ -41,13 +41,38 @@ public class check extends HttpServlet {
             throws ServletException, IOException {
        
         
-        ObjectMapper ob = new ObjectMapper();
-        String text = "false";
+        String rollno = request.getParameter("rollno");
+        String roomno = request.getParameter("roomno");
+        String block = request.getParameter("block");
+        
+        
         PrintWriter out = response.getWriter();
-    response.setContentType("text/plain");  // Set content type of the response so that jQuery knows what it can expect.
-    response.setCharacterEncoding("UTF-8"); // You want world domination, huh?
-    response.getWriter().write(text);
+        // out.println(rollno);
+         //out.println(roomno);
+         //out.println(block);
+        
+        
+      /*  PrintWriter out = response.getWriter();
+       BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream()));
+       String stu="";  
+       if(br != null){
+        stu = br.readLine();
+    }
+       
+       ObjectMapper mapper = new ObjectMapper();
+        
+        String text = "false";
       
+           student stubean = (student)mapper.readValue(stu, student.class);
+            String rollno = stubean.getRollNo();
+            String block = stubean.getBlock();
+            String roomno = stubean.getRoomno();
+        
+        
+        response.setContentType("text/plain");  // Set content type of the response so that jQuery knows what it can expect.
+    response.setCharacterEncoding("UTF-8"); // You want world domination, huh?
+    response.getWriter().write(rollno);
+      */
         //request.getRequestDispatcher("/notvalid.jsp").forward(request,response);
         
         
@@ -78,7 +103,7 @@ public class check extends HttpServlet {
             
        
         
-        
+        */
         
         
         //*********************************************************************************************************************** 
@@ -89,30 +114,35 @@ public class check extends HttpServlet {
         // 2=Room already booked
         // 3=Room is free got and get it
         
+        try{
         
-        
+            
         connectionprovider conn = new connectionprovider();
         Connection con = conn.getCon();
         
-
+        
+        
         
             PreparedStatement st = con.prepareStatement("select * from info where rollno=?");
             st.setString(1, rollno);
             ResultSet rs = st.executeQuery();
-            rs.next();
-            if(rs.next()==false){ //means not present not valid
-                
+            //rs.next();
+            
+            if(!rs.next()){ //means not present not valid
+                 //out.println("nothing present");
                 
                 response.setContentType("text/plain"); 
                 response.setCharacterEncoding("UTF-8");
                 response.getWriter().write("0");
                 
             }else{
+                
+                 //out.println("present here");
                   response.setContentType("text/plain"); 
                 response.setCharacterEncoding("UTF-8");
                 response.getWriter().write("1");
             }
-            response.getWriter().write("Hello");
+          // response.getWriter().write("Hello");
           // request.getRequestDispatcher("/notvalid.jsp").forward(request,response);
         
         
@@ -126,13 +156,13 @@ public class check extends HttpServlet {
     response.setContentType("text/plain");  // Set content type of the response so that jQuery knows what it can expect.
     response.setCharacterEncoding("UTF-8"); // You want world domination, huh?
     response.getWriter().write(text);
-        
+        */
         
         
         }catch(Exception e){
-            e.printStackTrace();
+            e.printStackTrace(out);
         }
-        */
+        
         
         
        
