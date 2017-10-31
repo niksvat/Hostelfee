@@ -38,6 +38,15 @@
                             
                             <br></td>
      </table>
+        <a href="/receipt.jsp?roll=<%=%>"Print </button>
+print.innerHTML="<b>Print</b>";
+print.setAttribute("class", "btn center-block");
+textmiddle.appendChild(print);
+
+print.addEventListener("click",function(event)
+{
+        window.location.href="receipt.jsp";
+});
     </div>
   </div>
 </div>
@@ -51,5 +60,5 @@
 </div>
 
 </body>
-<script src="success.js"></script>
+
 </html>
