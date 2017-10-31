@@ -1,6 +1,8 @@
-<!DOCTYPE html>
+
 <%@ page import="java.security.*"%>
 <%@ page import="java.util.*"%>
+<%@ page import="java.sql.*"%>
+<%@ page import="hostel.*"%>
 
 
 <html lang="en">
@@ -92,8 +94,8 @@
         String phone = request.getParameter("phone");
         String zipcode = request.getParameter("zipcode");
         String udf2 = request.getParameter("udf2");//udf2====Roll number
-        
-        
+        String blockno = request.getParameter("udf3");
+        String roomno = request.getParameter("udf4");
         String amount = request.getParameter("amount");
         String txnid = request.getParameter("txnid");
         String posted_hash = request.getParameter("hash");
@@ -133,6 +135,21 @@
                    }
                else {
                    
+                   
+                   connectionprovider con = new connectionprovider();
+                   Connection conn = con.getCon();
+                   PreparedStatement st = conn.prepareStatement("insert into status values(?,?,?)");
+                   st.setString(1, udf2);
+                   st.setString(2, roomno);
+                   st.setString(3,blockno);
+                   st.execute();
+                   
+                   
+                   
+                   
+                   
+                   
+                   
       %>             
 
         
@@ -146,7 +163,7 @@
                             <%}%>
                             <br></td>
      </table>
-                            <center><h3> <a href="http://localhost:8084/Hostelfee/receipt.jsp?roll=<%=udf2%>">Print Receipt</a></h3></center>
+                            <center><h3> <a href="http://localhost:8084/Hostelfee/receipt.jsp?roll=<%=udf2%>&txnid=<%=txnid%>&block=<%=blockno%>&room=<%=roomno%>">Print Receipt</a></h3></center>
     </div>
   </div>
 </div>
