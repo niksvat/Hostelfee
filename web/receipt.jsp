@@ -1,5 +1,10 @@
 
 <!DOCTYPE html>
+
+
+<%@ page import="java.sql.*"%>
+<%@ page import="hostel.*"%>
+
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -32,14 +37,49 @@
                         <em><p id="date"></p></em>
                     </p>
                     <p>
-                        <em> Transaction id: 34522677W</em>
+                        <em> Transaction id: <%=request.getParameter("txnid")%></em>
                     </p>
                 </div>
             </div>
-             Name :<br></br>
-                Class :<br></br>
-                Roll No.  :<br></br>
-                Room No. :<br></br>
+            
+            <%
+            
+            
+                String roll = request.getParameter("roll");
+                //String txnid = request.getParameter("txnid");
+                
+                String roomno = request.getParameter("room");
+                String blockno = request.getParameter("block");
+                
+                        
+                    connectionprovider con = new connectionprovider();
+                   Connection conn = con.getCon();
+                   PreparedStatement st = conn.prepareStatement("select * from info where rollno=?");
+                   st.setString(1, roll);
+                   ResultSet rs = st.executeQuery();
+                   rs.next();
+                   
+                   String name = rs.getString("sname");
+                   
+                   String sem = rs.getString("sem");
+                   String email = rs.getString("email");
+                   
+                   
+                   
+                   
+
+
+
+%>
+            
+            
+            
+             Name :<%=name%><br></br>
+                Course :B.tech<br></br>
+                Roll No.  :<%=roll%><br></br>
+                Room No. :<%=roomno%><br></br>
+                Block No. :<%=blockno%><br>
+                Email :<%=email%><br>
             <div class="row">
                 <div class="text-center">
                     <h1>Payment Receipt</h1>
