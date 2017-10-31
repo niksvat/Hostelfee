@@ -278,8 +278,8 @@ function submitPayuForm() {
       
 	  <input type="hidden" name="service_provider" value="payu_paisa" />
           <input name="country" value="India" type="hidden"/>
-          <input type="hidden" name="surl" value="http://localhost:8080/Hostelfee/success.jsp" /><!-- http://www.booksnote.com/success-->
-          <input type="hidden" name="furl" value="http://localhost:8080/Hostelfee/failed.jsp" /><!--http://www.booksnote.com/failure -->
+          <input type="hidden" name="surl" value="http://localhost:8084/Hostelfee/success.jsp" /><!-- http://www.booksnote.com/success-->
+          <input type="hidden" name="furl" value="http://localhost:8084/Hostelfee/failed.jsp" /><!--http://www.booksnote.com/failure -->
           <input type="hidden" name="curl" value="http://www.booksnote.com/cancel" /><!--http://www.booksnote.com/cancel -->
            <input name="productinfo" type="hidden" value="Hostel Fee submission" />
            
@@ -385,6 +385,12 @@ function submitPayuForm() {
                   <option value="A" >A</option>
                   <option value="B" > B</option>
                   <option value="C" > C</option>
+                  <option value="D" >D</option>
+                  <option value="E" > E</option>
+                  <option value="F" > F</option>
+                  <option value="G" >G</option>
+                  <option value="H" > H</option>
+                  <option value="J" > J</option>
                 </select>
                 <span class="error">
                                 </span> </div>
