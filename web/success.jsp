@@ -10,6 +10,15 @@
         <div id ="textinthemiddle">
         </div>
     </body>
-        <script src="success.js"></script>
+
+    <!--
+    
+    Catch up all parameters and extract udf2 i.e. rollno.
+    Then print your payment is completed with this tranacntion id.
+    Click this to print Recepit
+    
+    -->
+    
+    <script src="success.js"></script>
     
 </html>

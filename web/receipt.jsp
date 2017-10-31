@@ -6,6 +6,16 @@
         <link href="D:\study\website\hostel\css\bootstrap.min.css" rel="stylesheet">
         <link href="D:\study\website\hostel\css\receipt.css" rel="stylesheet">
 
+        
+       <!-- 
+       
+       Print all necesaary details over here with trancation id. Take it from database.
+       
+       
+       -->
+        
+        
+        
     <body>
         <div class="container">
     <div class="row">

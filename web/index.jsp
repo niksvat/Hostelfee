@@ -183,9 +183,6 @@ function submitPayuForm() {
        $.ajax({
         url: 'check',
         type: 'GET',
-        dataType: 'json',
-        contentType: 'application/json',
-        mimeType: 'application/json',
         data: 'rollno='+info.rollno+'&roomno='+info.roomno+'&block='+info.block ,
         success: function (response) {
             console.log(response);
@@ -204,6 +201,7 @@ function submitPayuForm() {
                 alert("Sorry, This room is already booked");
                  window.location.href="index.jsp";
         }
+      
             
             
             
@@ -325,7 +323,7 @@ function submitPayuForm() {
                                   </select>
                 <span class="error">
                                 </span> </div>
-              
+                
               <div class="col-md-6  form-group">
                 <label>Semester <span  class="required">*</span></label>
                 
