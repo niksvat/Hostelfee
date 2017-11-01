@@ -182,6 +182,7 @@ function submitPayuForm() {
        $.ajax({
         url: 'check',
         type: 'GET',
+        async: false,
         data: 'rollno='+info.rollno+'&roomno='+info.roomno+'&block='+info.block ,
         error: function (response) {
             console.log(response);
