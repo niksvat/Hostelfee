@@ -62,7 +62,7 @@
                    String name = rs.getString("sname");
                    
                    String sem = rs.getString("sem");
-                   String email = rs.getString("email");
+                   String email = rs.getString("emailid");
                    
                    
                    

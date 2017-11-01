@@ -87,16 +87,21 @@
         String status = request.getParameter("status");
         String firstname = request.getParameter("firstname");
         
-        String address1 = request.getParameter("address1");
-        String address2 = request.getParameter("address2");
-        String city = request.getParameter("city");
+        String blockno = request.getParameter("address1");
+        String roomno = request.getParameter("udf1");
+      //  String city = request.getParameter("city");
         
         String phone = request.getParameter("phone");
         String zipcode = request.getParameter("zipcode");
         String udf2 = request.getParameter("udf2");//udf2====Roll number
-        String blockno = request.getParameter("udf3");
-        String roomno = request.getParameter("udf4");
-        String amount = request.getParameter("amount");
+
+
+  //        String blockno = request.getParameter("city");
+//        String roomno = request.getParameter("country");
+       
+
+
+                      String amount = request.getParameter("amount");
         String txnid = request.getParameter("txnid");
         String posted_hash = request.getParameter("hash");
         String key = request.getParameter("key");
@@ -141,7 +146,7 @@
                    PreparedStatement st = conn.prepareStatement("insert into status values(?,?,?)");
                    st.setString(1, udf2);
                    st.setString(2, roomno);
-                   st.setString(3,blockno);
+                   st.setString(3, blockno);
                    st.execute();
                    
                    

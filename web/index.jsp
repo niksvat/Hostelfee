@@ -135,8 +135,7 @@ public boolean empty(String s)
 		
 
 %>
-    
-   <!-- <jsp:include page="databasecheckup.jsp"></jsp:include>-->
+  
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -184,6 +183,10 @@ function submitPayuForm() {
         url: 'check',
         type: 'GET',
         data: 'rollno='+info.rollno+'&roomno='+info.roomno+'&block='+info.block ,
+        error: function (response) {
+            console.log(response);
+            
+        },
         success: function (response) {
             console.log(response);
             
@@ -200,51 +203,21 @@ function submitPayuForm() {
             if(response==2){
                 alert("Sorry, This room is already booked");
                  window.location.href="index.jsp";
-        }
+             } 
+             
+             
       
             
             
             
             
-        },
-        error: function (response) {
-            console.log(response);
-            alert("error");
         }
+        
     }); 
        
        
        
-        
-       /* requester.onreadystatechange = fsenunction() {
-  if (this.readyState == 4 && this.status == 200) {
-    document.getElementById("demo").innerHTML = this.responseText;
-  }
-};
-        
-      
-       /*alert("hello");
        
-       
-     */  
-       /*var requesterr=new XMLHttpRequest();
-       requesterr.open("POST",'check');
-       requesterr.send();
-       requesterr.addEventListener('load',function(){
-      
-          ob= requesterr.responseText;
-          console.log(ob);
-          
-          if(!ob)
-              {
-                  alert("YOU ARE NOT A VALID USER");
-                  window.location.href="localhost:8080/hostelfee";
-              }else{
-                  window.location.href="google.com";
-              }
-              
-        //console.log(arrayofproducts);
-   });*/
     }
 </script>
 
@@ -290,7 +263,7 @@ function submitPayuForm() {
               <div class="col-md-6 form-group">
                 <label>Session <span  class="required">*</span></label>
                 <select  name="uiet_session" class="form-control" size="1">
-                  <option value="">--Session--</option>
+                  
                                     <option value="2017-18" >2017-18</option>
                                   </select>
                 <span class="error">
@@ -302,7 +275,7 @@ function submitPayuForm() {
                                 </span> </div>
                 <div class="col-md-6 form-group">
                 <label>Father's Name <span  class="required">*</span></label>
-                <input type="text"  class="form-control" name="udf1" value="<%= (empty(params.get("udf1"))) ? "" : params.get("udf1") %>" maxlength="30">
+                <input type="text"  class="form-control" name="country" value="<%= (empty(params.get("country"))) ? "" : params.get("country") %>" maxlength="30">
                 <span class="error">
                                 </span> </div>
               
@@ -315,7 +288,7 @@ function submitPayuForm() {
               <div class="col-md-6 form-group">
                 <label> Course <span  class="required">*</span></label>
                 <select name="course" class="form-control course" size="1">
-                  <option value="">--Select Course--</option>
+                 
                                     <option value="1" >B.Tech Biotech</option>
                                     <option value="2" >B.Tech CSE</option>
                                     <option value="3" >B.Tech ECE</option>
@@ -327,16 +300,15 @@ function submitPayuForm() {
               <div class="col-md-6  form-group">
                 <label>Semester <span  class="required">*</span></label>
                 
-                <select name="udf5" value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" class="form-control" size="1">
-                  <option value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" selected="selected">--Select Semester--</option>
-                  <option value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" class="sem1" >Semester - I</option>
-                  <option value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" class="sem1" >Semester - II</option>
-                  <option value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" class="sem1" >Semester - III</option>
-                  <option value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" class="sem1" >Semester - IV</option>
-                  <option value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" class="sem2" >Semester - V</option>
-                  <option value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" class="sem2" >Semester - VI</option>
-                  <option value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" class="sem2" >Semester - VII</option>
-                  <option value="<%= (empty(params.get("udf5"))) ? "" : params.get("udf5") %>" class="sem2" >Semester - VIII</option>
+                <select name="City"  class="form-control" size="1">
+                  <option  class="sem1" >Semester - I</option>
+                  <option  class="sem1" >Semester - II</option>
+                  <option  class="sem1" >Semester - III</option>
+                  <option  class="sem1" >Semester - IV</option>
+                  <option  class="sem2" >Semester - V</option>
+                  <option  class="sem2" >Semester - VI</option>
+                  <option  class="sem2" >Semester - VII</option>
+                  <option  class="sem2" >Semester - VIII</option>
                   
                 </select>
                 <span class="error">
@@ -380,8 +352,8 @@ function submitPayuForm() {
                 
               <div class="col-md-6 form-group">
                 <label>Block <span  class="required">*</span></label>
-                <select  name="block" id="blockid" class="form-control fee_type" size="1">
-                  <option value="">--Block--</option>
+                <select  name="address1" id="blockid" class="form-control fee_type" size="1">
+                  
                   <option value="A" >A</option>
                   <option value="B" > B</option>
                   <option value="C" > C</option>
@@ -396,8 +368,8 @@ function submitPayuForm() {
                                 </span> </div>
               <div class="col-md-6  form-group">
                 <label>Room No. <span  class="required">*</span></label>
-                <select  name="roomno" id="roomnoid" class="form-control fee_type" size="1">
-                  <option value="">--Room no--</option>
+                <select  name="udf1" id="roomnoid" class="form-control fee_type" size="1">
+                  
                   <option value="27" >27</option>
                   <option value="42" > 42</option>
                   
