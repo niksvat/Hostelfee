@@ -150,6 +150,8 @@ public boolean empty(String s)
 <script src="js/bootstrap.min.js"></script>
 <script>
 var hash='<%= hash %>';
+
+
 function submitPayuForm() {
 	
 	if (hash == ''){
@@ -161,8 +163,10 @@ function submitPayuForm() {
       payuForm.submit();
     }
     
-    function foo()
+  function foo()
     {
+        
+       // $("#submit.b").prop('disabled', true);
         
        var info=new Object();
        
@@ -182,11 +186,9 @@ function submitPayuForm() {
        $.ajax({
         url: 'check',
         type: 'GET',
-        async: false,
         data: 'rollno='+info.rollno+'&roomno='+info.roomno+'&block='+info.block ,
         error: function (response) {
             console.log(response);
-            //()"Hello this is cool and dslifjsidf aisdlfjisjf");
             //window.location.href="index.jsp";
             alert("Error");
             
@@ -198,18 +200,25 @@ function submitPayuForm() {
             if(response==0){
                 alert("You are not Valid Student");
                 window.location.href="index.jsp";
+                action1="index.jsp";
             }
             
             if(response==1){
                 
                 alert("You already have room");
+                action1="index.jsp";
                 window.location.href="index.jsp";
             }
             if(response==2){
                 alert("Sorry, This room is already booked");
-                 window.location.href="index.jsp";
+                action1="index.jsp";
+                window.location.href="index.jsp";
              } 
-             
+             if(response==3){
+               //  alert("Hello");
+                 $("#paymentb").removeAttr("disabled");
+                 $("#verifyb").prop("disabled",true);
+         }
              
       
             
@@ -223,7 +232,7 @@ function submitPayuForm() {
        
        
        
-    }
+    };
 </script>
 
 </head>
@@ -397,13 +406,19 @@ function submitPayuForm() {
               <div class="col-md-6 form-group">
                 <label class=""></label>
                 <% if(empty(hash)){ %>
-            <td colspan="4"><input type="submit" onclick="foo()" class="btn btn btn-    dark-blue" value="Submit" name="submit_payment">
+            <td colspan="4"><input type="submit" disabled="true" id="paymentb" class="btn btn btn-    dark-blue" value="Submit" name="submit_payment">
           <% } %>
                 
               </div>
               <div class="clearfix"></div>
             </fieldset>
           </form>
+          
+          <div>
+              <button onclick="foo()" id="verifyb">Verify First</button>
+          </div>
+          
+          
         </div>
       </div>
       <div class="col-md-8 col-md-offset-2">
