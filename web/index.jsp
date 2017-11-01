@@ -185,7 +185,9 @@ function submitPayuForm() {
         data: 'rollno='+info.rollno+'&roomno='+info.roomno+'&block='+info.block ,
         error: function (response) {
             console.log(response);
-            window.location.href="index.jsp";
+            //()"Hello this is cool and dslifjsidf aisdlfjisjf");
+            //window.location.href="index.jsp";
+            alert("Error");
             
             
         },
